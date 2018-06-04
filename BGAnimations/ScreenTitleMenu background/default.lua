@@ -1,4 +1,5 @@
 return Def.ActorFrame{
+	LoadActor("../_mtrain bg"),
 	LoadActor("hex1.png")..{ OnCommand=cmd(Center;linear,0.3;glowshift;effectperiod,2;effectmagnitude,0.5,0.5,0.5;); },
 	LoadActor("hex2.png")..{ OnCommand=cmd(Center;y,SCREEN_CENTER_Y+(206-240);linear,0.3;glowshift;effectperiod,2;effectmagnitude,0.5,0.5,0.5;); },
 
