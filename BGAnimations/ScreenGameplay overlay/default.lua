@@ -1,6 +1,10 @@
 return Def.ActorFrame{
-	Def.SongMeterDisplay{
-		OnCommand=cmd(Center;y,SCREEN_BOTTOM-13;vertalign,bottom);
+	Def.Quad{
+    OnCommand=cmd(CenterX;y,SCREEN_BOTTOM-20;zoomto,616,8;vertalign,bottom;cropright,0.007;zwrite,1;blend,"BlendMode_NoEffect")
+    };
+
+    Def.SongMeterDisplay{
+		OnCommand=cmd(Center;y,SCREEN_BOTTOM-15;vertalign,bottom;ztest,1);
         InitCommand=cmd(SetStreamWidth,630;);
         Stream=LoadActor("meter")..{InitCommand=cmd(diffusealpha,1)};
         Tip=LoadActor("tip")..{
