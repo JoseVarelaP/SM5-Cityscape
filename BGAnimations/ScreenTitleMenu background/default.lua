@@ -5,6 +5,7 @@ return Def.ActorFrame{
 
 	LoadActor("optionsb.png")..{ OnCommand=cmd(Center;zoom,0.5); },
 	LoadActor("cityscape.png")..{ OnCommand=cmd(xy,SCREEN_CENTER_X+(178-320),SCREEN_CENTER_Y+(235-240);zoom,.4); },
+	LoadActor("choices")..{ OnCommand=cmd(xy,SCREEN_CENTER_X+188,SCREEN_CENTER_Y); },
 }
 -- [BGAnimation]
 -- LengthSeconds=25
