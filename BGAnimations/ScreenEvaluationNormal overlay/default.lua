@@ -21,15 +21,31 @@ local spacing = {1,2,3,4,5,6,7}
 for player in ivalues(Players) do
 	t[#t+1] = LoadActor("Frame")..{
 		OnCommand=function(self)
-		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-160) or SCREEN_CENTER_X+160 )
-		self:y(SCREEN_CENTER_Y)
+		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-160) or SCREEN_CENTER_X+160 ):CenterY()
 		end,
 	};
 
 	t[#t+1] = LoadActor( THEME:GetPathG("","Tiers/"..STATSMAN:GetCurStageStats():GetPlayerStageStats(player):GetGrade()) )..{
 		OnCommand=function(self)
-		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-90) or SCREEN_CENTER_X+230 )
-		self:y(SCREEN_CENTER_Y-80)
+		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-90) or SCREEN_CENTER_X+230 ):y(SCREEN_CENTER_Y-80)
+		end,
+	};
+
+	t[#t+1] = Def.BitmapText{
+		Text=string.format("% 4d", STATSMAN:GetCurStageStats():GetPlayerStageStats(player):MaxCombo() ),
+		Font="_numbers5",
+		OnCommand=function(self)
+		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-160) or SCREEN_CENTER_X+160 ):y( SCREEN_CENTER_Y+105 )
+		:diffuse(Color.Black):zoom(0.6)
+		end,
+	};
+
+	t[#t+1] = Def.BitmapText{
+		Text=string.format("% 9d", STATSMAN:GetCurStageStats():GetPlayerStageStats(player):GetScore() ),
+		Font="_numbers5",
+		OnCommand=function(self)
+		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-160) or SCREEN_CENTER_X+160 ):y( SCREEN_CENTER_Y+136 )
+		:diffuse(0.5,0.5,0.5,1):zoom(0.4)
 		end,
 	};
 
@@ -38,11 +54,8 @@ for player in ivalues(Players) do
 		Text=string.format("% 4d", NoteScore(player,ValuesToFind[NVal]) ),
 		Font="_numbers5",
 		OnCommand=function(self)
-		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-190) or SCREEN_CENTER_X+130 )
-		self:y( SCREEN_CENTER_Y-142+(15*NVal) )
-		self:diffuse(0,0.7,1,1)
-		self:horizalign(left)
-		self:zoom(0.3)
+		self:x( (player == PLAYER_1 and SCREEN_CENTER_X-190) or SCREEN_CENTER_X+130 ):y( SCREEN_CENTER_Y-142+(15*NVal) )
+		:diffuse(0,0.7,1,1):horizalign(left):zoom(0.3)
 		end,
 		};
 	end
