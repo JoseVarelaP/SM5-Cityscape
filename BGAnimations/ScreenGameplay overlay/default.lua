@@ -27,6 +27,13 @@ t[#t+1] = Def.ActorFrame{
 
 }
 
+local function MidFrameDistance()
+    local function WideScreenAmmount()
+        return (PREFSMAN:GetPreference("DisplayAspectRatio") > 1.77 and 226) or 140
+    end
+    return (IsUsingWideScreen() and WideScreenAmmount()) or 12
+end
+
 local DiffList = {
     Difficulty_Beginner = 0,
     Difficulty_Easy = 1,
@@ -44,7 +51,7 @@ for player in ivalues(Players) do
     };
 end
 
-t[#t+1] = LoadActor("FrameMiddle")..{ OnCommand=cmd(Center;zoomtowidth,140); };
+t[#t+1] = LoadActor("FrameMiddle")..{ OnCommand=cmd(Center;zoomtowidth,MidFrameDistance()); };
 t[#t+1] = LoadActor("FrameLeft")..{ OnCommand=cmd(x,SCREEN_LEFT;CenterY;horizalign,left); };
 t[#t+1] = LoadActor("FrameRight")..{ OnCommand=cmd(x,SCREEN_RIGHT;CenterY;horizalign,right); };
 

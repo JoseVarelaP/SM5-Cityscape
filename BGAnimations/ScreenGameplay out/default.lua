@@ -1,12 +1,20 @@
 return Def.ActorFrame{
-	LoadActor("../_mtrain bg blur");
-	LoadActor("../_aurora");
-	LoadActor("../_hexagon");
-	LoadActor("../_progress bar");
+	LoadActor("../_mtrain bg blur")..{
+	StopMessageCommand=cmd(finishtweening);
+	};
+	LoadActor("../_aurora")..{
+	StopMessageCommand=cmd(finishtweening);
+	};
+	LoadActor("../_hexagon")..{
+	StopMessageCommand=cmd(finishtweening);
+	};
+	LoadActor("../_progress bar")..{
+	StopMessageCommand=cmd(finishtweening);
+	};
 	
 	Def.Quad{ OnCommand=cmd(Center;diffusealpha,1;linear,2.5;diffusealpha,0;sleep,1.5;queuecommand,"SendNextScreen");
 	SendNextScreenCommand=function(self)
-	SCREENMAN:SetNewScreen("ScreenEvaluationNormal")
+	MESSAGEMAN:Broadcast("Stop")
 	end,
 	};
 
