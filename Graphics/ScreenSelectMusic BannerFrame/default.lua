@@ -4,6 +4,8 @@ local player = args.player
 local FrameYOffset = 55
 
 local function RadarValue(pn,n)
+	-- Directly from the SM5 API
+
 	-- 'RadarCategory_Stream'			0
 	-- 'RadarCategory_Voltage'			1
 	-- 'RadarCategory_Air'				2
@@ -27,9 +29,7 @@ local function GenerateStepShow(pn,n)
 	local t = Def.ActorFrame{
 		LoadFont("Common Normal")..{
 		OnCommand=cmd(horizalign,left);
-		UpdateCommand=function(self)
-		self:settext( RadarValue(pn,n) )
-		end,
+		UpdateCommand=function(self) self:settext( RadarValue(pn,n) ) end,
 		CurrentSongChangedMessageCommand=cmd(queuecommand,"Update");
 		CurrentStepsP1ChangedMessageCommand=cmd(queuecommand,"Update");
 		CurrentStepsP2ChangedMessageCommand=cmd(queuecommand,"Update");
@@ -39,6 +39,9 @@ local function GenerateStepShow(pn,n)
 	return t;
 end
 
+-- Return difficulty frames for the Difficulty label
+-- Couldn't think of another way to make it show
+-- someone knows a better way of doing it?
 local DiffList = {
 	Difficulty_Beginner = 0,
 	Difficulty_Easy = 1,
