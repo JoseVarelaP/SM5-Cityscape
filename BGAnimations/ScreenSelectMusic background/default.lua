@@ -8,9 +8,7 @@ return Def.ActorFrame{
 	OnCommand=cmd(xy,SCREEN_CENTER_X,20;zoom,0.5;diffusealpha,0;accelerate,0.2;diffusealpha,0.5;decelerate,0.2;diffusealpha,1);
 	};
 
-	LoadActor("../border.png")..{
-	OnCommand=cmd(Center);
-	};
+	LoadActor("../border");
 }
 
 -- [BGAnimation]

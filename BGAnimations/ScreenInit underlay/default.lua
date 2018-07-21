@@ -8,7 +8,7 @@ return Def.ActorFrame{
 	LoadActor("squeaky")..{ OnCommand=cmd(Center;zoom,0.5;diffusealpha,0;sleep,5.7;accelerate,0.4;diffusealpha,0.6;decelerate,0.4;diffusealpha,1;sleep,3.0;accelerate,0.3;diffusealpha,0.5;decelerate,0.3;diffusealpha,0); };
 	LoadActor("cityscapecolor")..{ OnCommand=cmd(Center;zoom,0.5;diffusealpha,0;sleep,9.7;accelerate,1.5;diffusealpha,0.5;decelerate,1.5;diffusealpha,1;sleep,6.3;accelerate,1;diffusealpha,0.0;); };
 
-	LoadActor("../border.png")..{ OnCommand=cmd(Center); };
+	LoadActor("../border");
 }
 
 -- [BGAnimation]

@@ -7,9 +7,7 @@ return Def.ActorFrame{
 	OnCommand=cmd(diffusealpha,0.7;linear,0.7;diffusealpha,0);
 	};
 
-	LoadActor("border")..{
-	OnCommand=cmd(Center);
-	};
+	LoadActor("border");
 
 	};
 }

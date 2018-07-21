@@ -82,9 +82,7 @@ t[#t+1] = Def.ActorFrame{
 	ShowPressStartForOptionsCommand=cmd(linear,0.3;diffusealpha,1);
 	};
 
-	LoadActor("../border")..{
-	OnCommand=cmd(Center);
-	};
+	LoadActor("../border");
 
 	LoadActor( "Options","Message")..{
 		InitCommand=cmd(Center;pause;zoomy,0);

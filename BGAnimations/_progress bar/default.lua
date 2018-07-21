@@ -1,6 +1,6 @@
 return Def.ActorFrame{
 	LoadActor("back")..{ OnCommand=cmd(zoom,0.5;Center;y,20); };
-	LoadActor("../stripes")..{ OnCommand=cmd(Center;zoom,0.5;y,14;customtexturerect,0,0,1,1;texcoordvelocity,-0.06,0;diffusealpha,0.2); };
+	LoadActor("../stripes")..{ OnCommand=cmd(Center;zoom,0.5;y,14;customtexturerect,0,0,2,1;zoomx,2;texcoordvelocity,-0.06,0;diffusealpha,0.2); };
 }
 
 -- [BGAnimation]

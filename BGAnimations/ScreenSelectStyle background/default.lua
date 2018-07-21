@@ -2,7 +2,7 @@ return Def.ActorFrame{
 	LoadActor("../_mtrain bg blur"),
 	LoadActor("../_aurora"),
 	--LoadActor("../_hexagon"),
-	LoadActor("../_progress bar1"),
+	LoadActor("../_progress bar"),
 
 	LoadActor("../1")..{
 	OnCommand=cmd(zoom,0.5;Center;y,20;diffusealpha,0;accelerate,0.4;diffusealpha,0.5;decelerate,0.4;diffusealpha,1;glowshift;);
@@ -20,7 +20,7 @@ return Def.ActorFrame{
 	OnCommand=cmd(x,480;y,350;zoom,0.5;diffusealpha,0;accelerate,0.4;diffusealpha,0.5;decelerate,0.4;diffusealpha,1);
 	};
 
-	LoadActor("../border.png")..{ OnCommand=cmd(Center); };
+	LoadActor("../border");
 }
 
 -- [BGAnimation]

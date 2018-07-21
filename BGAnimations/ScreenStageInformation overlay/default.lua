@@ -4,15 +4,13 @@ return Def.ActorFrame{
 	OnCommand=cmd(diffusealpha,0;linear,0.7;diffusealpha,1);
 	};
 
-	LoadActor("../border")..{
-	OnCommand=cmd(Center);
-	};
+	LoadActor("../border");
 
 	Def.ActorFrame{
 	OnCommand=cmd(sleep,4.5;linear,0.5;diffusealpha,0);
 		Def.Quad{ OnCommand=cmd(sleep,5); };
-		Def.Quad{ OnCommand=cmd(Center;zoomto,650,490;diffuse,0,0,0,1); };
-		Def.Quad{ OnCommand=cmd(Center;zoomto,650,200;diffuse,0,0,0,1;x,SCREEN_CENTER_X;y,464); };
+		Def.Quad{ OnCommand=cmd(Center;zoomto,SCREEN_WIDTH,490;diffuse,0,0,0,1); };
+		Def.Quad{ OnCommand=cmd(Center;zoomto,SCREEN_WIDTH,200;diffuse,0,0,0,1;x,SCREEN_CENTER_X;y,464); };
 		LoadActor("../static1")..{
 		OnCommand=cmd(Center;diffusealpha,0;sleep,0.6;linear,0.4;diffusealpha,0.5;vibrate;effectmagnitude,1,1,0);
 		};
@@ -29,9 +27,7 @@ return Def.ActorFrame{
 		OnCommand=cmd(Center;y,277.5;diffusealpha,0.5;zoomtowidth,SCREEN_WIDTH;zoomtoheight,2;cropleft,1;linear,0.6;cropleft,0);
 		};
 	
-		LoadActor("../border")..{
-		OnCommand=cmd(Center);
-		};
+		LoadActor("../border");
 	
 		LoadFont("Common Normal")..{
 		Text=GAMESTATE:GetCurrentSong():GetDisplayMainTitle(),
