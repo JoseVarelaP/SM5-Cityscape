@@ -61,4 +61,17 @@ for player in ivalues(Players) do
 	end
 end
 
+t[#t+1] = Def.ActorFrame{
+	OnCommand=cmd(CenterX;y,SCREEN_BOTTOM-50);
+
+	Def.Quad{ OnCommand=cmd(zoomto,SCREEN_WIDTH,35;vertalign,top;y,-10;diffuse,1,1,0,0.3) };
+	Def.Quad{ OnCommand=cmd(zoomto,SCREEN_WIDTH,2;vertalign,top;y,-10;diffuse,1,1,0,0.6) };
+	Def.Quad{ OnCommand=cmd(zoomto,SCREEN_WIDTH,2;vertalign,bottom;y,25;diffuse,1,1,0,0.6) };
+
+	LoadFont("Common Normal")..{ Text=GAMESTATE:GetCurrentSong():GetDisplayMainTitle(); OnCommand=cmd(zoom,0.5); };
+	LoadFont("Common Normal")..{ Text=GAMESTATE:GetCurrentSong():GetDisplayArtist(); OnCommand=cmd(zoom,0.5;y,15); };
+};
+
+t[#t+1] = LoadActor("../border");
+
 return t;
