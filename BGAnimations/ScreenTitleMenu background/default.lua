@@ -1,30 +1,37 @@
+local FadeApply = GetScreenAspectRatio() > 1.4
 return Def.ActorFrame{
 	LoadActor("../_mtrain bg"),
-	LoadActor("hex1.png")..{ OnCommand=cmd(Center;linear,0.3;glowshift;effectperiod,2;effectmagnitude,0.5,0.5,0.5;); },
-	LoadActor("hex2.png")..{ OnCommand=cmd(Center;y,SCREEN_CENTER_Y+(206-240);linear,0.3;glowshift;effectperiod,2;effectmagnitude,0.5,0.5,0.5;); },
+	Def.ActorFrame{
+		OnCommand=function(self)
+			self:CenterY():x( SCREEN_RIGHT-320 )
 
-	LoadActor("optionsb.png")..{ OnCommand=cmd(Center;zoom,0.5); },
-	LoadActor("cityscape.png")..{ OnCommand=cmd(xy,SCREEN_CENTER_X+(178-320),SCREEN_CENTER_Y+(235-240);zoom,.4); },
-	LoadActor("choices")..{ OnCommand=cmd(xy,SCREEN_CENTER_X+188,SCREEN_CENTER_Y); },
+			local c = self:GetChildren()
+			if FadeApply then
+				c[""][1]:fadeleft( 0.2 ):cropleft(0.09)
+				c[""][2]:fadeleft( 0.2 ):cropleft(0.09)
+				c[""][3]:fadeleft( 0.05 )
+			end
+		end,
+		Def.Sprite{
+			Texture="hex1",
+			OnCommand=function(self)
+				self:glowshift():effectperiod(2):effectmagnitude(.5,.5,.5)
+			end,
+		},
+		Def.Sprite{
+			Texture="hex2",
+			OnCommand=function(self)
+				self:glowshift():y(-32):effectperiod(2):effectmagnitude(.5,.5,.5)
+			end,
+		},
+		Def.Sprite{ Texture="optionsb" },
+		Def.Sprite{
+			Texture="cityscape",
+			OnCommand=function(self) self:x(-130):zoom(.8) end
+		},
+		Def.Sprite{
+			Texture="choices",
+			OnCommand=function(self) self:x(190) end
+		}
+	}
 }
--- [BGAnimation]
--- LengthSeconds=25
-
--- [Layer1]
--- Import=../_mtrain bg
-
--- [Layer6]
--- Type=0		// 0=sprite, 1=stretch, 2=particles, 3=tiles
--- File=../_black.png
--- Command=x,320;y,10;diffusealpha,0.5;zoomtowidth,640;zoomtoheight,20
-
--- [Layer9]
--- Type=0		// 0=sprite, 1=stretch, 2=particles, 3=tiles
--- File=cityscape.png
--- Command=x,178;y,235;zoom,.4;diffusealpha,1.0
-
--- [Layer10]
--- Type=0		// 0=sprite, 1=stretch, 2=particles, 3=tiles
--- File=../border.png
--- Command=
-
